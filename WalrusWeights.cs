@@ -16,7 +16,7 @@ namespace Kattis_tasks
         }
         public void addWeight(int newWeight)
         {
-            for (int i = combinations.Length-1; i >= 0; i--)
+            for (int i = combinations.Length - 1; i >= 0; i--)
             {
                 if (combinations[i] != 0)
                 {
@@ -25,27 +25,27 @@ namespace Kattis_tasks
                         combinations[combinations[i] + newWeight] = combinations[i] + newWeight;
                     }
                 }
-                
+
             }
-    
+
             combinations[newWeight] = newWeight;
-        
+
         }
 
 
-      
+
         public int getClosest()
         {
             int closestMarginal = 1000;
             int closestValue = 0;
-            foreach(int combination in combinations)
+            foreach (int combination in combinations)
             {
-                if (Math.Abs(1000-combination) < closestMarginal)
+                if (Math.Abs(1000 - combination) < closestMarginal)
                 {
                     closestMarginal = Math.Abs(1000 - combination);
                     closestValue = combination;
                 }
-                if (Math.Abs(1000 - combination) == closestMarginal && combination>closestValue)
+                if (Math.Abs(1000 - combination) == closestMarginal && combination > closestValue)
                 {
                     closestMarginal = Math.Abs(1000 - combination);
                     closestValue = combination;
@@ -63,8 +63,8 @@ namespace Kattis_tasks
             {
                 walrus.addWeight(Int32.Parse(Console.ReadLine()));
             }
-                Console.WriteLine(walrus.getClosest());
- 
+            Console.WriteLine(walrus.getClosest());
+
         }
     }
 }
